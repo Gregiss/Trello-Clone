@@ -9,6 +9,7 @@
 <body>
 <!-- partial:index.partial.html -->
 <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
 <div id="app">
 <div class="dash" v-bind:class="{mini: !minif}">
   <p class="quadro_title" @click="editQuadroName" v-if="!editQuadroTitle">{{quadro.title}}</p>
@@ -33,12 +34,12 @@
   </div>
      </div>
     </div>
-  <input type="text" v-model="card.novaTarefa" v-on:keyup.enter="newTarefa(card)" placeholder="Nome da tarefa">
+  <input type="text" v-model="card.novaTarefa" v-on:keyup.enter="newTarefa(card)" placeholder="Nome da tarefa" maxLength="100">
 </div>
 
 <div class="card">
   <h1>Crie um novo card</h1>
-  <input type="text" v-model="newCardName" v-on:keyup.enter="newCard" placeholder="Nome do card">
+  <input type="text" v-model="newCardName" v-on:keyup.enter="newCard" placeholder="Nome do card" maxLength="10">
 </div>
   
 <div class="rightt">
