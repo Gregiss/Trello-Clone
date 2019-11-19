@@ -94,8 +94,8 @@ const app = new Vue({
       this.cards[idCard].tarefas[idTarefa].finalizado = anteriorFinalizado
       this.cards[idCard].tarefas[idTarefa].moved = true
       this.cards[idCard].tarefas[idTarefa - 1].moved = true
-      setTimeout(() => this.cards[idCard].tarefas[idTarefa].moved = false , 1000);
-      setTimeout(() => this.cards[idCard].tarefas[idTarefa - 1].moved = false , 1000);
+      setTimeout(() => this.cards[idCard].tarefas[idTarefa].moved = false , 500);
+      setTimeout(() => this.cards[idCard].tarefas[idTarefa - 1].moved = false , 500);
     },
     downTarefa(tarefa, card){
       const idCard = this.cards.indexOf(card)
@@ -112,8 +112,8 @@ const app = new Vue({
       this.cards[idCard].tarefas[idTarefa].finalizado = anteriorFinalizado
       this.cards[idCard].tarefas[idTarefa + 1].moved = true
       this.cards[idCard].tarefas[idTarefa].moved = true
-      setTimeout(() => this.cards[idCard].tarefas[idTarefa].moved = false , 1000);
-      setTimeout(() => this.cards[idCard].tarefas[idTarefa + 1].moved = false , 1000);
+      setTimeout(() => this.cards[idCard].tarefas[idTarefa].moved = false , 500);
+      setTimeout(() => this.cards[idCard].tarefas[idTarefa + 1].moved = false , 500);
     },
     deleteCard(card){
       const idCard = this.cards.indexOf(card)
