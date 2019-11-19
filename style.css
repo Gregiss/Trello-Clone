@@ -10,7 +10,7 @@ body,html{
   background-size: cover;
   top: 0px;
   left: 0px;
-  background-image: url('./back.jpg');
+  background-image: url('./back.png');
 }
 
 .dash{
