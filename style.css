@@ -1,23 +1,6 @@
 body,html{
-  background: #444857;
+  background-color: #B04632;
   font-family: 'Ubuntu', sans-serif;
-}
-
-::-webkit-scrollbar-track
-{
-	background-color: transparent;
-}
-
-::-webkit-scrollbar
-{
-	width: 12px;
-	background-color: transparent;
-}
-
-::-webkit-scrollbar-thumb
-{
-  border-radius: 40px;
-	background-color: rgba(0,0,0,.40);
 }
 
 .dash{
@@ -30,16 +13,16 @@ body,html{
   top: 30px;
   transition: 0.4s all;
   white-space: nowrap;
-      display: grid;
-    grid-auto-columns: 27rem;
-    grid-auto-flow: column;
-    grid-column-gap: 1rem;
-      display: flex;
-    align-items: start;
-    padding: 0 0.8rem 0.8rem;
-    overflow-x: auto;
-    overflow-y: hidden;
-    height: calc(100vh - 8.6rem);
+  display: grid;
+  grid-auto-columns: 27rem;
+  grid-auto-flow: column;
+  grid-column-gap: 1rem;
+  display: flex;
+  align-items: start;
+  padding: 0 0.8rem 0.8rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  height: calc(100vh - 2.6rem);
 }
 
 h1{
@@ -55,7 +38,7 @@ input{
   background: transparent;
   padding: 10px;
   position: relative;
-  top: 15px;
+  top: 10px;
 }
 
 input{
@@ -63,6 +46,10 @@ input{
   outline: none;
   text-align: left;
   margin-top: 1vw;
+  position: relative;
+  top: -10px;
+  width: calc(100% - 15px);
+  left: 10px;
 }
 
 button{
@@ -75,6 +62,23 @@ button{
 
 button:focus{
   transform: scale(1.07);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    background-color: #0079bf;
+}
+
+:focus {
+    outline-color: #fa0;
 }
 
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
@@ -94,8 +98,6 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
   width: auto;
   height: auto;
   background: #fff;
-  padding: 20px;
-  margin: 0.5vw;
   top: 40px;
   user-select: none;
   -webkit-animation: linear alternate;
@@ -111,11 +113,48 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
     display: flex;
     flex-direction: column;
     background-color: #e2e4e6;
-    max-height: calc(100vh - 15.8rem);
+    max-height: calc(100vh - 8.8rem);
     border-radius: 0.3rem;
     margin-right: 1rem;
-   overflow: auto;
+   overflow: hidden;
 }
+
+.card .title{
+  padding: 20px;
+}
+
+.list{
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: calc(100vh - 8.8rem);
+  padding: 10px;
+  width: 100%;
+  margin: 10px;
+}
+
+::-webkit-scrollbar {
+    width: 1.6rem;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #c4c9cc;
+    border-right: 0.6rem solid #e2e4e6;
+}
+
+.card h1{
+  padding: 20px;
+}
+
+.dash::-webkit-scrollbar {
+    height: 0.8rem;
+}
+
+.dash::-webkit-scrollbar-thumb {
+    background-color: rgba(0,0,0,.40);
+    border: 0.8rem solid rgba(0,0,0,.40);
+    border-top-width: 0;
+}
+
 
 .card .title{
     word-break: break-all;
@@ -131,14 +170,14 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
    max-width: 260px;
    max-height: 250px;
    margin-top: 9px;
-  position: relative;
-    top: 10px;
-
+   position: relative;
+   top: -20px;
    padding-bottom: 50px;
    cursor: pointer;
   -webkit-animation: linear alternate;
   -webkit-animation-name: opacity;
   -webkit-animation-duration: 0.45s;
+  left: -10px;
 }
 
 .tarefa:hover{
@@ -150,6 +189,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
   line-break: unset;
   white-space: pre-wrap;
   user-select: none;
+  margin: 10px;
   -moz-user-select: none;
   -moz-user-select: text;
   -moz-user-select: all;
@@ -235,7 +275,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
   width: 200px;
   height: 100%;
   right: 0px;
-  background: #2c303a;
+  background: #0000008f;
   top: 0px;
   color: #fff;
   transition: 0.4s all;
@@ -304,4 +344,11 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 .right {
     display: flex;
     margin-left: 12px;
+}
+
+.topd {
+    position: absolute;
+    margin: 15px 80% 0% !important;
+    color: #ca4848;
+    font-size: 18px;
 }

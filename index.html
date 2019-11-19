@@ -18,6 +18,8 @@
   </div>
   <button v-if="card.delete" @click="deleteCard(card)" class="delete topd"><i class="fas fa-trash"></i></button>
   <p class="title"><i :class="card.icon"> </i>    {{ card.name }}</p>
+  <div class="list">
+   <p v-if="card.tarefas.length == 0">Nenhuma tarefa</p>
   <div class="tarefa" v-for="tarefa in card.tarefas" v-on:dblclick="concluido(card, tarefa)" v-bind:class="{ concluido: tarefa.finalizado}">
     <p>{{ tarefa.name }}</p>
     <button @click="deleteTarefa(tarefa, card)" class="delete"><i class="fas fa-trash"></i></button>
@@ -25,6 +27,7 @@
     <button class="move" @click="move(card,tarefa)"><i class="fas fa-mouse-pointer"></i></button>
     <button v-if="card.tarefas.indexOf(tarefa) < card.tarefas.length - 1" @click="downTarefa(tarefa, card)" class="right"><i class="fas fa-chevron-down"></i></button>
   </div>
+    </div>
   <input type="text" v-model="card.novaTarefa" v-on:keyup.enter="newTarefa(card)" placeholder="Nome da tarefa">
 </div>
 

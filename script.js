@@ -1,6 +1,3 @@
-//github.com/passaumdollar
-//github.com/kaway404
-
 const app = new Vue({
   el: "#app",
   data:{
