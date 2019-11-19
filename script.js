@@ -1,6 +1,7 @@
 const app = new Vue({
   el: "#app",
   data:{
+    quadro: {"title": "Quadro sem título"},
     cards: [],
     newCardName: "",
     mover: false,
@@ -9,7 +10,8 @@ const app = new Vue({
     qualTarefaMover: {},
     idCard: 0,
     idTarefa: 0,
-    minif: false
+    minif: false,
+    editQuadroTitle: false
   },
   mounted(){
     this.montar()
@@ -30,7 +32,8 @@ const app = new Vue({
         "tarefas" : [],
         "novaTarefa": null,
         "icon": "fas fa-clock",
-        "delete": false
+        "delete": false,
+        "edit": false
       })
       this.cards.push({
         "id": this.cards.length,
@@ -38,7 +41,8 @@ const app = new Vue({
         "tarefas" : [],
         "novaTarefa": null,
         "icon": "fas fa-clock",
-        "delete": false
+        "delete": false,
+        "edit": false
       })
     },
     newCard(){
@@ -49,7 +53,8 @@ const app = new Vue({
         "tarefas" : [],
         "novaTarefa": null,
         "icon": "fas fa-binoculars",
-        "delete": true
+        "delete": true,
+        "edit": false
       })
       this.newCardName = ""
       }
@@ -64,7 +69,8 @@ const app = new Vue({
       this.cards[id].tarefas.push({
         "id": this.cards[id].tarefas.length,
         "name": this.cards[id].novaTarefa,
-        "finalizado" : finalizadoT
+        "finalizado" : finalizadoT,
+        "moved": false
       })
       this.cards[id].novaTarefa = ""
       }
@@ -86,6 +92,10 @@ const app = new Vue({
       this.cards[idCard].tarefas[idTarefa].name = anterior
       this.cards[idCard].tarefas[idTarefa - 1].finalizado = euFinalizado
       this.cards[idCard].tarefas[idTarefa].finalizado = anteriorFinalizado
+      this.cards[idCard].tarefas[idTarefa].moved = true
+      this.cards[idCard].tarefas[idTarefa - 1].moved = true
+      setTimeout(() => this.cards[idCard].tarefas[idTarefa].moved = false , 1000);
+      setTimeout(() => this.cards[idCard].tarefas[idTarefa - 1].moved = false , 1000);
     },
     downTarefa(tarefa, card){
       const idCard = this.cards.indexOf(card)
@@ -100,6 +110,10 @@ const app = new Vue({
       this.cards[idCard].tarefas[idTarefa].name = anteriorName
       this.cards[idCard].tarefas[idTarefa + 1].finalizado = euFinalizado
       this.cards[idCard].tarefas[idTarefa].finalizado = anteriorFinalizado
+      this.cards[idCard].tarefas[idTarefa + 1].moved = true
+      this.cards[idCard].tarefas[idTarefa].moved = true
+      setTimeout(() => this.cards[idCard].tarefas[idTarefa].moved = false , 1000);
+      setTimeout(() => this.cards[idCard].tarefas[idTarefa + 1].moved = false , 1000);
     },
     deleteCard(card){
       const idCard = this.cards.indexOf(card)
@@ -152,6 +166,24 @@ const app = new Vue({
       } else{
         this.minif = true
       }
+    },
+    editQuadroName(){
+      this.editQuadroTitle = true
+    },
+    cancelQuadroTitle(){
+      this.editQuadroTitle = false
+    },
+    cancelEditCard(card){
+      const idCard = this.cards.indexOf(card)
+      this.cards[idCard].edit = false
+    },
+    editTitleCard(card){
+      const idCard = this.cards.indexOf(card)
+      if(idCard > 2){
+      this.cards[idCard].edit = true
+      console.log(idCard)
+      }
     }
+    
   }
 });

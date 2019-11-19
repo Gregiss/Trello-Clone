@@ -89,8 +89,30 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
     vertical-align: baseline;
 }
 
+.quadro_title{
+  position: absolute;
+  color: #fff;
+  font-size: 18px;
+  padding: 5px;
+  margin-top: 0px;
+  -moz-user-select: none;
+  -moz-user-select: text;
+
+  -webkit-user-select: none;
+  
+  cursor: pointer;
+}
+
 *, *::before, *::after {
     box-sizing: border-box;
+}
+
+.card .edit{
+    height: 20px;
+    top: 17px;
+    display: flex;
+    margin: 0px;
+    position: absolute;
 }
 
 .card{
@@ -98,7 +120,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
   width: auto;
   height: auto;
   background: #fff;
-  top: 40px;
+  top: 80px;
   user-select: none;
   -webkit-animation: linear alternate;
   -webkit-animation-name: run;
@@ -121,6 +143,12 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 
 .card .title{
   padding: 20px;
+  cursor: pointer;
+}
+
+.editando{
+  opacity: 0;
+  z-index: -1;
 }
 
 .list{
@@ -139,6 +167,12 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 ::-webkit-scrollbar-thumb {
     background-color: #c4c9cc;
     border-right: 0.6rem solid #e2e4e6;
+}
+
+.moved{
+  -webkit-animation: linear alternate;
+  -webkit-animation-name: run;
+  -webkit-animation-duration: 0.45s;
 }
 
 .card h1{
@@ -192,16 +226,8 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
   margin: 10px;
   -moz-user-select: none;
   -moz-user-select: text;
-  -moz-user-select: all;
 
   -webkit-user-select: none;
-  -webkit-user-select: text;
-  -webkit-user-select: all;
-
-  -ms-user-select: none;
-  -ms-user-select: text;
-  -ms-user-select: all;
-  -ms-user-select: element;
    word-break: break-all;
    width: 190px;
 }
@@ -351,4 +377,11 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
     margin: 15px 80% 0% !important;
     color: #ca4848;
     font-size: 18px;
+}
+
+.title_q{
+  position: absolute;
+  color: #fff;
+  padding: 5px;
+  margin: 10px 3px;
 }
