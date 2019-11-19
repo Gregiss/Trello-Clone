@@ -19,8 +19,8 @@
     <div @click="cancelMover" class="moover" v-else="idCard === cards.indexOf(card)"> <p>Cancelar</p></div>
   </div>
   <button v-if="card.delete" @click="deleteCard(card)" class="delete topd"><i class="fas fa-trash"></i></button>
-  <p class="title" v-bind:class="{ editando: card.edit }"  @click="editTitleCard(card)"><i :class="card.icon"> </i>    {{ card.name }}</p>
-  <input v-if="card.edit" @blur="cancelEditCard(card)" v-on:keyup.enter="cancelEditCard(card)" class="edit" type="text" v-model="card.name">
+  <p class="title" v-bind:class="{ editando: card.edit }"  @click="editTitleCard(card)"><i :class="card.icon"> </i>    {{ card.name }} <span v-if="card.name == ''">Sem título</span></p>
+  <input v-if="card.edit" @blur="cancelEditCard(card)" v-on:keyup.enter="cancelEditCard(card)" class="edit" type="text" v-model="card.name" maxlength="10">
   <div class="list">
    <p v-if="card.tarefas.length == 0">Nenhuma tarefa</p>
    <div v-for="tarefa in card.tarefas" v-bind:class="{moved: tarefa.moved}">
