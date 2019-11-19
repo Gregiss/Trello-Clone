@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>ToDo</title>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css'><link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
+<div id="app">
+<div class="dash"  v-bind:class="{mini: !minif}">
+<div class="card" v-for="card in cards">
+  <div v-if="mover" class="move_p">
+    <div @click="movendo(card)" class="moover" v-if="idCard !== cards.indexOf(card)"> <p>Mover pra cá</p></div>
+    <div @click="cancelMover" class="moover" v-else="idCard === cards.indexOf(card)"> <p>Cancelar</p></div>
+  </div>
+  <button v-if="card.delete" @click="deleteCard(card)" class="delete topd"><i class="fas fa-trash"></i></button>
+  <p class="title"><i :class="card.icon"> </i>    {{ card.name }}</p>
+  <div class="tarefa" v-for="tarefa in card.tarefas" v-on:dblclick="concluido(card, tarefa)" v-bind:class="{ concluido: tarefa.finalizado}">
+    <p>{{ tarefa.name }}</p>
+    <button @click="deleteTarefa(tarefa, card)" class="delete"><i class="fas fa-trash"></i></button>
+    <button v-if="card.tarefas.indexOf(tarefa) > 0" @click="upTarefa(tarefa, card)" class="right"><i class="fas fa-chevron-up"></i></button>
+    <button class="move" @click="move(card,tarefa)"><i class="fas fa-mouse-pointer"></i></button>
+    <button v-if="card.tarefas.indexOf(tarefa) < card.tarefas.length - 1" @click="downTarefa(tarefa, card)" class="right"><i class="fas fa-chevron-down"></i></button>
+  </div>
+  <input type="text" v-model="card.novaTarefa" v-on:keyup.enter="newTarefa(card)" placeholder="Nome da tarefa">
+</div>
+
+<div class="card">
+  <h1>Crie um novo card</h1>
+  <input type="text" v-model="newCardName" v-on:keyup.enter="newCard" placeholder="Nome do card">
+</div>
+  
+<div class="rightt">
+  <div style="padding: 10px; width: 100%; height: 100%; overflow-y: auto; overflow-x: hidden;">
+    <i @click="mini" v-bind:class="{'fas fa-times': minif}" class="fas fa-bars"></i>
+    <h1>Opções</h1>  
+    <button>Darkmode</button>
+  </div>
+</div>
+  
+</div>
+</div>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.2/dragula.min.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>
