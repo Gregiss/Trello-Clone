@@ -10,7 +10,7 @@ body,html{
   background-size: cover;
   top: 0px;
   left: 0px;
-  background-image: url('https://raw.githubusercontent.com/PassaUmDollar/Trello-Clone/master/back.png');
+  background-image: url('./back.png');
 }
 
 
