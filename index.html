@@ -11,6 +11,7 @@
 <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
 <div id="app">
+<div class="back"></div>
 <div class="dash" v-bind:class="{mini: !minif}">
   <p class="quadro_title" @click="editQuadroName" v-if="!editQuadroTitle">{{quadro.title}}</p>
   <input class="title_q" @blur="cancelQuadroTitle" v-on:keyup.enter="cancelQuadroTitle" v-else="" type="text" v-model="quadro.title" @>

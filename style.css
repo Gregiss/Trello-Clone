@@ -3,6 +3,16 @@ body,html{
   font-family: 'Ubuntu', sans-serif;
 }
 
+.back{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  top: 0px;
+  left: 0px;
+  background-image: url('./back.jpg');
+}
+
 .dash{
   position: fixed;
   width: calc(100% - 280px);
