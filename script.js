@@ -28,7 +28,7 @@ const app = new Vue({
       })
       this.cards.push({
         "id": this.cards.length,
-        "name": "A fazer",
+        "name": "Em progresso",
         "tarefas" : [],
         "novaTarefa": null,
         "icon": "fas fa-clock",
