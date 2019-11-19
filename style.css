@@ -101,7 +101,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 }
 
 .quadro_title{
-  position: absolute;
+  position: fixed;
   color: #fff;
   font-size: 18px;
   padding: 5px;
@@ -112,6 +112,10 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
   -webkit-user-select: none;
   
   cursor: pointer;
+}
+
+.quadro_title:hover{
+  background: rgba(0,0,0,.40);
 }
 
 *, *::before, *::after {
@@ -392,8 +396,9 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 }
 
 .title_q{
-  position: absolute;
+  position: fixed;
   color: #fff;
   padding: 5px;
   margin: 10px 3px;
+  top: 20px;
 }
